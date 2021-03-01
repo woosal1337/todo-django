@@ -14,5 +14,28 @@
  ### App configurations
  ```
  1) urls.py in the app directory
- 
+ 2) include the app name in the main generated app settings.py -> INSTALLED_APPS list
+ 3) include the app url path in the main general app urls.py -> urlpatterns list `path("tasks/", include("tasks.urls"))`
  ```
+ 
+## Templates
+
+### urls.py Template
+```
+from django.urls import path  
+  
+from . import views  
+  
+urlpatterns = \[  
+    path("", views.index, name\="index")  
+\]
+```
+
+### views.py Template
+```
+from django.shortcuts import render, HttpResponse  
+  
+# Create your views here.  
+def index(request):  
+    return HttpResponse("Hello, World!")
+```
